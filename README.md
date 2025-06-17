@@ -1,95 +1,67 @@
-# Top Level Comments Guide
+# Top-Level Comments Testing
 
-This repository serves as a guide to understanding and implementing top level comments in programming.
+This repository is designed to test and demonstrate the functionality of top-level comments in code review systems.
 
-## What are Top Level Comments?
+## What are Top-Level Comments?
 
-Top level comments are comments placed at the beginning of a file, module, or class. They provide high-level information about the code that follows, including:
+Top-level comments are feedback items that apply to an entire file or project rather than specific lines of code. They provide a way to give general feedback about code organization, architecture, documentation, and other high-level concerns.
 
-- Purpose and functionality of the file/module
-- Author information
-- Version history
-- License information
-- Dependencies
-- Usage examples
+## Comment Format
 
-## Why are Top Level Comments Important?
+In this system, comments are presented in the following format:
 
-1. **Documentation**: They serve as the first point of documentation for developers.
-2. **Maintainability**: They make code easier to maintain by providing context.
-3. **Onboarding**: They help new developers understand the codebase faster.
-4. **Compliance**: They often include license and copyright information required for legal compliance.
-
-## Examples of Top Level Comments in Different Languages
-
-### Python
-```python
-"""
-File: example.py
-Author: John Doe
-Date: 2023-05-15
-Description: This module provides utility functions for data processing.
-License: MIT
-Dependencies: numpy, pandas
-"""
-
-# Rest of the code follows...
+```
+<file_path>|||<line_number>|||<comment>
 ```
 
-### JavaScript
-```javascript
-/**
- * @fileoverview Provides utilities for handling DOM operations
- * @author Jane Smith
- * @version 1.0.0
- * @license Apache-2.0
- * @requires jquery
- */
+Where:
+- `<file_path>` is the path to the file being commented on
+- `<line_number>` is the line number where the comment applies
+- `<comment>` is the actual feedback text
 
-// Rest of the code follows...
-```
+## Examples
 
-### Java
-```java
-/**
- * This class implements a binary search tree data structure.
- * <p>
- * It provides methods for insertion, deletion, and traversal of elements.
- * </p>
- * 
- * @author Alex Johnson
- * @version 2.1.0
- * @since 1.0.0
- */
-public class BinarySearchTree {
-    // Class implementation...
-}
-```
+Here are some examples of how comments are formatted:
 
-## Best Practices for Top Level Comments
+Note: All examples are shown as plain text, not code blocks.
 
-1. **Be Concise**: Provide necessary information without being overly verbose.
-2. **Keep Updated**: Update comments when the code changes.
-3. **Follow Conventions**: Adhere to language-specific documentation conventions (e.g., JavaDoc, JSDoc).
-4. **Include Essential Information**: At minimum, include the purpose of the file and author information.
-5. **Use Consistent Formatting**: Maintain consistent formatting across all files in a project.
+This is an example of a comment in a file:
+`web/utils.py|||156|||Make first parameter optional`
 
-## Testing Top Level Comments
+This indicates there is a comment in `web/utils.py` on line 156 saying "Make first parameter optional".
 
-To ensure your top level comments are effective:
+Another example:
+`README.md|||25|||remove the python example`
 
-1. Have another developer review them for clarity
-2. Verify they provide enough context to understand the file's purpose
-3. Check that they follow project or language conventions
-4. Ensure they're up-to-date with the current code functionality
+This indicates there is a comment on line 25 of the README.md file saying "remove the python example".
 
-## Tools for Generating and Validating Comments
+## Usage Guidelines
 
-- **JSDoc**: For JavaScript documentation
-- **Sphinx**: For Python documentation
-- **JavaDoc**: For Java documentation
-- **Doxygen**: For multiple languages including C++, C, Java
+When processing top-level comments:
 
----
+1. Parse the comment string by splitting on the `|||` delimiter
+2. Extract the file path, line number, and comment text
+3. Apply the feedback to the specified location
+4. Verify changes meet the requirements specified in the comment
 
-This repository is for educational purposes to demonstrate the importance and implementation of top level comments in code.
+## Implementation
+
+To implement a system that processes these comments, you would need to:
+
+1. Parse the comment format
+2. Locate the specified files
+3. Navigate to the correct line numbers
+4. Interpret and apply the feedback appropriately
+
+## Testing
+
+This repository serves as a testing ground for the comment system. Various test cases can be added to verify that comments are correctly processed and applied.
+
+## Contributing
+
+Feel free to contribute additional test cases or improvements to the comment processing system.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+

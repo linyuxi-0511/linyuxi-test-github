@@ -1,67 +1,65 @@
-# Top-Level Comments Testing
+# Top Level Comments Testing
 
-This repository is designed to test and demonstrate the functionality of top-level comments in code review systems.
+This repository is designed to test the functionality of top level comments in code review systems.
 
-## What are Top-Level Comments?
+## Overview
 
-Top-level comments are feedback items that apply to an entire file or project rather than specific lines of code. They provide a way to give general feedback about code organization, architecture, documentation, and other high-level concerns.
+Top level comments refer to feedback provided at the file level rather than on specific lines of code. This testing framework helps ensure that these comments are properly processed, displayed, and managed within the system.
 
 ## Comment Format
 
-In this system, comments are presented in the following format:
+Feedback comments are presented in the following format:
 
 ```
 <file_path>|||<line_number>|||<comment>
 ```
 
-Where:
-- `<file_path>` is the path to the file being commented on
-- `<line_number>` is the line number where the comment applies
-- `<comment>` is the actual feedback text
+### Format Explanation
 
-## Examples
+- `<file_path>`: The path to the file receiving the comment
+- `<line_number>`: The line number where the comment applies
+- `<comment>`: The actual comment text
 
-Here are some examples of how comments are formatted:
+## How It Works
 
-Note: All examples are shown as plain text, not code blocks.
+When a comment is submitted in the specified format, the system parses it and attaches the comment to the appropriate file and line. For top level comments, these are typically associated with the file as a whole rather than specific lines.
 
-This is an example of a comment in a file:
-`web/utils.py|||156|||Make first parameter optional`
+## Usage
 
-This indicates there is a comment in `web/utils.py` on line 156 saying "Make first parameter optional".
+To test top level comments, follow these steps:
 
-Another example:
-`README.md|||25|||remove the python example`
+1. Create a comment in the specified format
+2. Submit the comment through the appropriate interface
+3. Verify that the comment appears correctly in the system
 
-This indicates there is a comment on line 25 of the README.md file saying "remove the python example".
+## Sample Comments
 
-## Usage Guidelines
+Here are some examples of properly formatted comments:
 
-When processing top-level comments:
+```
+src/main.js|||0|||This file needs better documentation
+utils/helpers.py|||15|||Consider adding error handling here
+README.md|||22|||remove this ## Examples
+```
 
-1. Parse the comment string by splitting on the `|||` delimiter
-2. Extract the file path, line number, and comment text
-3. Apply the feedback to the specified location
-4. Verify changes meet the requirements specified in the comment
+## Testing Guidelines
 
-## Implementation
+When testing top level comments, consider the following scenarios:
 
-To implement a system that processes these comments, you would need to:
+1. Comments on files that don't exist
+2. Comments with invalid line numbers
+3. Comments with special characters
+4. Very long comments
+5. Comments with code snippets
 
-1. Parse the comment format
-2. Locate the specified files
-3. Navigate to the correct line numbers
-4. Interpret and apply the feedback appropriately
+## Troubleshooting
 
-## Testing
+If comments are not appearing correctly, check:
 
-This repository serves as a testing ground for the comment system. Various test cases can be added to verify that comments are correctly processed and applied.
+- The format of your comment string
+- Permissions settings
+- System configuration
 
 ## Contributing
 
-Feel free to contribute additional test cases or improvements to the comment processing system.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
+Contributions to improve the testing framework are welcome. Please follow the standard pull request process.
